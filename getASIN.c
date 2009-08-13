@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     unsigned char ch[1] = {'\0'};
 
     if ((fp = fopen(argv[1], "rb")) == NULL) {
-        printf("file open error!\n");
+        fprintf(stderr, "file open error!\n");
         exit(EXIT_FAILURE);
     }
 
@@ -84,4 +84,5 @@ int main(int argc, char *argv[])
     }
     printf("OK\n");
     fclose(fp);
+    return 0;
 }
