@@ -20,6 +20,8 @@ int main(int argc, char *argv[])
 	boxs = *((US*)(&boxw));
 
 	printf("uw:%d, ul:%d, us:%d, uc:%d\n",
-			sizeof(UW), sizeof(UL), sizeof(US), sizeof(UC));
+			(int)sizeof(UW), (int)sizeof(UL), (int)sizeof(US), (int)sizeof(UC));
 	printf("boxs:0x%x\n", boxs);
+
+	return 0;
 }

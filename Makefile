@@ -1,18 +1,23 @@
 CC = gcc
 #CXXFLAGS =	-O2 -g -Wall -fmessage-length=0
 CFLAGS = -g -Wall
+OBJS =		getASIN.o chkEndian.o
+#LIBS =
+TARGETS =	getASIN chkEndian
 
-OBJS =		getASIN.o
+#$(TARGET):	$(OBJS)
+#	$(CC) -o $(TARGET) $(OBJS) $(LIBS)
 
-LIBS =
+getASIN:	getASIN.o
+	$(CC) -o $@ $^
 
-TARGET =	getASIN.exe
+chkEndian:	chkEndian.o
+	$(CC) -m64 -o $@ $^
 
-$(TARGET):	$(OBJS)
-	$(CC) -o $(TARGET) $(OBJS) $(LIBS)
+chkEndian.o:	CFLAGS += -m64
 
-all:	$(TARGET)
+all:	$(TARGETS)
 
 .PHONY: clean
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -f $(OBJS) $(TARGETS)
