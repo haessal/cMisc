@@ -3,15 +3,15 @@ CC = gcc
 CFLAGS = -g -Wall
 OBJS =		getASIN.o chkEndian.o
 #LIBS =
-TARGETS =	getASIN chkEndian
+TARGETS =	getASIN.exe chkEndian.exe
 
 #$(TARGET):	$(OBJS)
 #	$(CC) -o $(TARGET) $(OBJS) $(LIBS)
 
-getASIN:	getASIN.o
+getASIN.exe:	getASIN.o
 	$(CC) -o $@ $^
 
-chkEndian:	chkEndian.o
+chkEndian.exe:	chkEndian.o
 	$(CC) -m64 -o $@ $^
 
 chkEndian.o:	CFLAGS += -m64
