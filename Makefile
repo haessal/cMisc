@@ -1,6 +1,9 @@
 CC = gcc
 CFLAGS = -g -Wall
-OBJS = cmisc.o
+OBJS = \
+  cmisc.o \
+  cmisc_main.o \
+
 TARGET = cmisc
 
 
@@ -12,4 +15,4 @@ clean:
 	rm -f $(OBJS) $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) -o $@ $<
+	$(CC) -o $@ $^
