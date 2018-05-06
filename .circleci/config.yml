@@ -1,0 +1,14 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: gcc:5
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run:
+          name: check compiler version
+          command: gcc --version
+      - run:
+          name: build all
+          command: make
