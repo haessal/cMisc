@@ -11,4 +11,11 @@ jobs:
           command: gcc --version
       - run:
           name: build all
-          command: make
+          command: |
+            make
+            make clean
+      - run:
+          name: unit test
+          command: |
+            make test
+            make clean
