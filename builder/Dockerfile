@@ -9,7 +9,7 @@ WORKDIR /root
 # Install packages
 RUN \
   apt-get update && apt-get upgrade -y && \
-  apt-get install -y --no-install-recommends gcc g++ make cmake && \
+  apt-get install -y --no-install-recommends gcc g++ make cmake curl && \
   apt-get install -y git
 
 # Install Google test
