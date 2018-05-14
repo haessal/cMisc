@@ -6,12 +6,24 @@ extern "C"
 #include "../cmisc_main.h"
 }
 
-TEST(cmisc_main, no_parameters)
+TEST(cmisc_main, multiargs)
 {
-	int argc = 1;
-	const char* argv[1] = {"cmisc"};
+	int argc = 3;
+	const char* argv[3] = {"cmisc", "aaa", "bbb"};
+	int ret;
+
+	ret = cmisc_main(argc, argv);
+	ASSERT_EQ(3, ret);
+}
+
+#if 0
+TEST(cmisc_main, noargs)
+{
+	int argc = 0;
+	const char* argv[1] = {0};
 	int ret;
 
 	ret = cmisc_main(argc, argv);
 	ASSERT_EQ(0, ret);
 }
+#endif

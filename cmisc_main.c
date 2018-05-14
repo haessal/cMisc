@@ -2,5 +2,11 @@
 
 int cmisc_main(int argc, const char **argv)
 {
-	return 0;
+	int ret = 0;
+	if (argc == 3) {
+		ret = argc;
+	} else {
+		ret = 1;
+	}
+	return ret;
 }
