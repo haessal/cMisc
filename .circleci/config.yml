@@ -3,7 +3,7 @@ jobs:
   build:
     docker:
       - image: haessal/cmisc-builder:latest
-    working_directory: ~/repo
+    working_directory: ~/cMisc
     steps:
       - checkout
       - run:
@@ -20,4 +20,8 @@ jobs:
             make test
             rm gtest_*.gcda gtest_*.gcno
             bash <(curl -s https://codecov.io/bash)
+            lcov -c -d . -o ./googletest.info
+            genhtml -o ./coverage ./googletest.info
             make clean
+      - store_artifacts:
+          path: coverage
