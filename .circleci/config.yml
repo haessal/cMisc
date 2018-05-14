@@ -15,7 +15,9 @@ jobs:
             make
             make clean
       - run:
-          name: unit test
+          name: unit test and report coverage
           command: |
             make test
+            rm gtest_*.gcda gtest_*.gcno
+            bash <(curl -s https://codecov.io/bash)
             make clean
