@@ -6,7 +6,6 @@ int cmisc_main(int argc, const char **argv)
 	if (argc == 3) {
 		ret = argc;
 	} else {
-		ret = 1;
 	}
 	return ret;
 }
