@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "gmock/gmock.h"
+#include <stdlib.h>
 
 extern "C"
 {
@@ -10,8 +11,18 @@ TEST(cmisc_main, no_parameters)
 {
 	int argc = 1;
 	const char* argv[1] = {"cmisc"};
-	int ret;
+	int status;
 
-	ret = cmisc_main(argc, argv);
-	ASSERT_EQ(0, ret);
+	status = cmisc_main(argc, argv);
+	ASSERT_EQ(EXIT_FAILURE, status);
+}
+
+TEST(cmisc_main, unsupported_subcommand)
+{
+	int argc = 2;
+	const char* argv[2] = {"cmisc", "unsupported"};
+	int status;
+
+	status = cmisc_main(argc, argv);
+	ASSERT_EQ(EXIT_FAILURE, status);
 }
