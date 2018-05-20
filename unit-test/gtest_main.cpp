@@ -17,6 +17,16 @@ TEST(cmisc_main, no_parameters)
 	ASSERT_EQ(EXIT_FAILURE, status);
 }
 
+TEST(cmisc_main, help_subcommand)
+{
+	int argc = 2;
+	const char* argv[2] = {"cmisc", "help"};
+	int status;
+
+	status = cmisc_main(argc, argv);
+	ASSERT_EQ(EXIT_SUCCESS, status);
+}
+
 TEST(cmisc_main, unsupported_subcommand)
 {
 	int argc = 2;
