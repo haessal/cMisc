@@ -7,6 +7,7 @@ test: CXXFLAGS = -g -Wall -O0 -fprofile-arcs -ftest-coverage
 
 OBJS = \
   cmisc.o \
+  help.o \
   main.o \
 
 TESTOBJS = \

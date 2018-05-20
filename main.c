@@ -41,6 +41,7 @@ static int handle_builtin(int argc, const char **argv)
 }
 
 static struct cmd_struct commands[] = {
+	{ "help", cmd_help },
 	{ 0, 0}
 };
 static struct cmd_struct *get_builtin(const char *s)
