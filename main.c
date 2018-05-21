@@ -8,6 +8,7 @@ struct cmd_struct {
 	int (*fn)(int argc, const char **argv);
 };
 
+static void handle_options(int *argcp, const char ***argvp);
 static int handle_builtin(int argc, const char **argv);
 static struct cmd_struct *get_builtin(const char *s);
 static int run_builtin(struct cmd_struct *p, int argc, const char **argv);
@@ -18,12 +19,18 @@ int cmisc_main(int argc, const char **argv)
 
 	argv++;
 	argc--;
+	handle_options(&argc, &argv);
 	if (argc > 0) {
 		status = handle_builtin(argc, argv);
 	} else {
 		status = EXIT_FAILURE;
 	}
 	return status;
+}
+
+static void handle_options(int *argcp, const char ***argvp)
+{
+	return;
 }
 
 static int handle_builtin(int argc, const char **argv)
